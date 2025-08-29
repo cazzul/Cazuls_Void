@@ -51,16 +51,19 @@ export interface RecordsFilters {
   exerciseName?: string
 }
 
-export interface SortConfig {
-  field: keyof UnifiedWorkoutRecord
+export interface SortConfig<T> {
+  field: keyof T
   direction: 'asc' | 'desc'
 }
+
+export interface WorkingSetSortConfig extends SortConfig<WorkingSet> {}
+export interface UnifiedWorkoutSortConfig extends SortConfig<UnifiedWorkoutRecord> {}
 
 export class RecordsService {
   // Get all workout types with unified data structure
   static async getAllUnifiedWorkouts(
     filters: RecordsFilters = {},
-    sortConfig: SortConfig = { field: 'date', direction: 'desc' }
+    sortConfig: UnifiedWorkoutSortConfig = { field: 'date', direction: 'desc' }
   ): Promise<UnifiedWorkoutRecord[]> {
     try {
       let allWorkouts: UnifiedWorkoutRecord[] = [];
@@ -127,10 +130,7 @@ export class RecordsService {
           lifting_exercises (
             id,
             exercise_name,
-            body_parts (
-              name,
-              color
-            ),
+            body_part_id,
             lifting_sets (
               id,
               weight,
@@ -145,18 +145,28 @@ export class RecordsService {
 
       if (error) throw error;
 
+      // Get all body parts for mapping
+      const { data: bodyPartsData } = await supabase
+        .from('body_parts')
+        .select('id, name, color');
+
+      const bodyPartsMap = new Map(
+        bodyPartsData?.map(bp => [bp.id, { name: bp.name, color: bp.color }]) || []
+      );
+
       const unifiedWorkouts: UnifiedWorkoutRecord[] = [];
       
       data?.forEach(session => {
         session.lifting_exercises?.forEach(exercise => {
+          const bodyPart = bodyPartsMap.get(exercise.body_part_id);
           exercise.lifting_sets?.forEach(set => {
             unifiedWorkouts.push({
               id: set.id.toString(),
               date: session.date,
               workoutType: 'lifting',
               type: exercise.exercise_name,
-              category: exercise.body_parts?.name || 'Unknown',
-              color: exercise.body_parts?.color || '#666',
+              category: bodyPart?.name || 'Unknown',
+              color: bodyPart?.color || '#666',
               weight: set.weight || 0,
               reps: set.reps || 0,
               setNumber: set.set_number,
@@ -334,7 +344,7 @@ export class RecordsService {
   // Get all working sets (lifting only - for backward compatibility)
   static async getAllWorkingSets(
     filters: RecordsFilters = {},
-    sortConfig: SortConfig = { field: 'date', direction: 'desc' }
+    sortConfig: WorkingSetSortConfig = { field: 'date', direction: 'desc' }
   ): Promise<WorkingSet[]> {
     try {
       const { data, error } = await supabase
@@ -345,10 +355,7 @@ export class RecordsService {
           lifting_exercises (
             id,
             exercise_name,
-            body_parts (
-              name,
-              color
-            ),
+            body_part_id,
             lifting_sets (
               id,
               weight,
@@ -363,17 +370,27 @@ export class RecordsService {
 
       if (error) throw error
 
+      // Get all body parts for mapping
+      const { data: bodyPartsData } = await supabase
+        .from('body_parts')
+        .select('id, name, color');
+
+      const bodyPartsMap = new Map(
+        bodyPartsData?.map(bp => [bp.id, { name: bp.name, color: bp.color }]) || []
+      );
+
       // Transform the nested data into flat working sets
       const workingSets: WorkingSet[] = []
       
       data?.forEach(session => {
         session.lifting_exercises?.forEach(exercise => {
+          const bodyPart = bodyPartsMap.get(exercise.body_part_id);
           exercise.lifting_sets?.forEach(set => {
             workingSets.push({
               id: set.id,
               date: session.date,
-              muscleGroup: exercise.body_parts?.name || 'Unknown',
-              muscleColor: exercise.body_parts?.color || '#666',
+              muscleGroup: bodyPart?.name || 'Unknown',
+              muscleColor: bodyPart?.color || '#666',
               exerciseName: exercise.exercise_name,
               weight: set.weight || 0,
               reps: set.reps || 0,
@@ -539,7 +556,7 @@ export class RecordsService {
   }
 
   // Sort working sets by specified field and direction
-  private static sortWorkingSets(sets: WorkingSet[], sortConfig: SortConfig): WorkingSet[] {
+  private static sortWorkingSets(sets: WorkingSet[], sortConfig: WorkingSetSortConfig): WorkingSet[] {
     return [...sets].sort((a, b) => {
       let aValue = a[sortConfig.field]
       let bValue = b[sortConfig.field]
@@ -566,7 +583,7 @@ export class RecordsService {
   }
 
   // Sort unified workouts by specified field and direction
-  private static sortUnifiedWorkouts(workouts: UnifiedWorkoutRecord[], sortConfig: SortConfig): UnifiedWorkoutRecord[] {
+  private static sortUnifiedWorkouts(workouts: UnifiedWorkoutRecord[], sortConfig: UnifiedWorkoutSortConfig): UnifiedWorkoutRecord[] {
     return [...workouts].sort((a, b) => {
       let aValue = a[sortConfig.field]
       let bValue = b[sortConfig.field]

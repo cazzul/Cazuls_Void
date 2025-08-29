@@ -55,8 +55,12 @@ export class ChartDataService {
   };
 
   // Get body part for an exercise
-  static getBodyPartForExercise(exerciseName: string): string {
-    return this.exerciseToBodyPart[exerciseName] || 'Other';
+  static getBodyPartForExercise(exerciseName: string): keyof WeeklyVolumeData | null {
+    const bodyPart = this.exerciseToBodyPart[exerciseName];
+    if (bodyPart && bodyPart in this.getCurrentWeekData()[0]) {
+      return bodyPart as keyof WeeklyVolumeData;
+    }
+    return null;
   }
 
   // Generate weekly volume data from workout data
@@ -84,8 +88,37 @@ export class ChartDataService {
         // Process lifting exercises
         workout.exercises.forEach(exercise => {
           const bodyPart = this.getBodyPartForExercise(exercise.name);
-          if (bodyPart in weeklyData[dayIndex]) {
-            weeklyData[dayIndex][bodyPart as keyof WeeklyVolumeData] += exercise.sets;
+          if (bodyPart) {
+            // Use a type-safe switch statement instead of dynamic property access
+            switch (bodyPart) {
+              case 'Back':
+                weeklyData[dayIndex].Back += exercise.sets;
+                break;
+              case 'Chest':
+                weeklyData[dayIndex].Chest += exercise.sets;
+                break;
+              case 'Biceps':
+                weeklyData[dayIndex].Biceps += exercise.sets;
+                break;
+              case 'Triceps':
+                weeklyData[dayIndex].Triceps += exercise.sets;
+                break;
+              case 'Shoulders':
+                weeklyData[dayIndex].Shoulders += exercise.sets;
+                break;
+              case 'Hamstrings':
+                weeklyData[dayIndex].Hamstrings += exercise.sets;
+                break;
+              case 'Quads':
+                weeklyData[dayIndex].Quads += exercise.sets;
+                break;
+              case 'Running':
+                weeklyData[dayIndex].Running += exercise.sets;
+                break;
+              case 'Biking':
+                weeklyData[dayIndex].Biking += exercise.sets;
+                break;
+            }
           }
         });
       } else if (workout.workoutType === 'running' && workout.distance) {
@@ -136,7 +169,38 @@ export class ChartDataService {
         if (workout.workoutType === 'lifting' && workout.exercises) {
           workout.exercises.forEach(exercise => {
             const bodyPart = this.getBodyPartForExercise(exercise.name);
-            bodyPartTotals[bodyPart] = (bodyPartTotals[bodyPart] || 0) + exercise.sets;
+            if (bodyPart) {
+              // Use a type-safe switch statement instead of dynamic property access
+              switch (bodyPart) {
+                case 'Back':
+                  bodyPartTotals['Back'] = (bodyPartTotals['Back'] || 0) + exercise.sets;
+                  break;
+                case 'Chest':
+                  bodyPartTotals['Chest'] = (bodyPartTotals['Chest'] || 0) + exercise.sets;
+                  break;
+                case 'Biceps':
+                  bodyPartTotals['Biceps'] = (bodyPartTotals['Biceps'] || 0) + exercise.sets;
+                  break;
+                case 'Triceps':
+                  bodyPartTotals['Triceps'] = (bodyPartTotals['Triceps'] || 0) + exercise.sets;
+                  break;
+                case 'Shoulders':
+                  bodyPartTotals['Shoulders'] = (bodyPartTotals['Shoulders'] || 0) + exercise.sets;
+                  break;
+                case 'Hamstrings':
+                  bodyPartTotals['Hamstrings'] = (bodyPartTotals['Hamstrings'] || 0) + exercise.sets;
+                  break;
+                case 'Quads':
+                  bodyPartTotals['Quads'] = (bodyPartTotals['Quads'] || 0) + exercise.sets;
+                  break;
+                case 'Running':
+                  bodyPartTotals['Running'] = (bodyPartTotals['Running'] || 0) + exercise.sets;
+                  break;
+                case 'Biking':
+                  bodyPartTotals['Biking'] = (bodyPartTotals['Biking'] || 0) + exercise.sets;
+                  break;
+              }
+            }
           });
         }
       }

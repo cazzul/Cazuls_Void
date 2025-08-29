@@ -2,7 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { Search, Filter, Calendar, ChevronUp, ChevronDown, Download, Dumbbell, Activity, Mountain } from "lucide-react";
-import { RecordsService, UnifiedWorkoutRecord, RecordsFilters, SortConfig } from "../lib/records-service";
+import { 
+  RecordsService, 
+  RecordsFilters, 
+  UnifiedWorkoutRecord, 
+  UnifiedWorkoutSortConfig 
+} from "../lib/records-service";
 
 interface RecordsTableProps {
   className?: string;
@@ -23,7 +28,7 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
   
   const [isLoading, setIsLoading] = useState(true);
   const [filters, setFilters] = useState<RecordsFilters>({});
-  const [sortConfig, setSortConfig] = useState<SortConfig>({ field: 'date', direction: 'desc' });
+  const [sortConfig, setSortConfig] = useState<UnifiedWorkoutSortConfig>({ field: 'date', direction: 'desc' });
   const [showFilters, setShowFilters] = useState(false);
   const [selectedMuscleGroups, setSelectedMuscleGroups] = useState<string[]>([]);
   const [selectedWorkoutTypes, setSelectedWorkoutTypes] = useState<('lifting' | 'running' | 'mtb')[]>([]);

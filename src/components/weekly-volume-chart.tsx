@@ -23,7 +23,7 @@ const customColors = {
   foreground: 'oklch(0.985 0 0)'
 };
 
-interface WeeklyVolumeData {
+export interface WeeklyVolumeData {
   day: string;
   Back: number;
   Chest: number;
