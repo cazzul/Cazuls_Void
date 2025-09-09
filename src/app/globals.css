@@ -8,6 +8,37 @@
 :root {
   --font-rebels: 'Orbitron', monospace;
   --font-main: 'Exo 2', sans-serif;
+  
+  /* Light Neutral Color Palette */
+  --color-background: oklch(92.3% 0.012 101.5); /* Sand */
+  --color-foreground: oklch(68.6% 0.021 73.1); /* Latte */
+  --color-secondary: oklch(91% 0.007 90); /* Taupe */
+  --color-muted: oklch(88.7% 0.009 89.1); /* Oat */
+  --color-border: oklch(90% 0.012 235); /* Spring Rain */
+  --color-card: oklch(87.1% 0.018 78.4); /* Sweet Beige */
+  --color-accent: oklch(74.1% 0.054 62.9); /* Terracotta */
+  
+  /* Workout Type Colors */
+  --color-lifting: oklch(68.6% 0.021 73.1); /* Latte */
+  --color-running: oklch(93.5% 0.005 250); /* Cool Gray */
+  --color-mtb: oklch(79.6% 0.025 76.5); /* Dusk */
+  
+  /* Running Workout Types */
+  --color-easy-run: oklch(87.1% 0.018 78.4); /* Sweet Beige */
+  --color-tempo-run: oklch(74.1% 0.054 62.9); /* Terracotta */
+  --color-intervals: oklch(68.6% 0.021 73.1); /* Latte */
+  --color-long-run: oklch(90% 0.012 235); /* Spring Rain */
+  --color-recovery: oklch(88.7% 0.009 89.1); /* Oat */
+  
+  /* MTB Workout Types */
+  --color-endurance: oklch(77.1% 0.035 69); /* Buffed Beige */
+  --color-power: oklch(74.1% 0.054 62.9); /* Terracotta */
+  --color-climbing: oklch(90% 0.012 235); /* Spring Rain */
+  
+  /* Interactive States */
+  --color-hover: oklch(88.7% 0.009 89.1); /* Oat */
+  --color-active: oklch(79.6% 0.025 76.5); /* Dusk */
+  --color-button-text: oklch(96.6% 0.007 88.7); /* Almond Milk */
 }
 
 * {
@@ -16,8 +47,8 @@
 
 body {
   font-family: 'Exo 2', sans-serif;
-  background-color: oklch(92.3% 0.012 101.5); /* Sand */
-  color: oklch(68.6% 0.021 73.1); /* Latte */
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 
 /* Custom scrollbar */
@@ -26,16 +57,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: oklch(88.7% 0.009 89.1); /* Oat */
+  background: var(--color-muted);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: oklch(79.6% 0.025 76.5); /* Dusk */
+  background: var(--color-active);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: oklch(74.1% 0.054 62.9); /* Terracotta */
+  background: var(--color-accent);
 }
 
 /* Smooth transitions */

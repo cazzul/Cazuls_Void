@@ -279,20 +279,20 @@ export default function LiftsPage() {
   return (
     <>
       {/* Header */}
-      <header className="flex justify-between items-center p-6 border-b" style={{ borderColor: 'oklch(0.269 0 0)', backgroundColor: 'oklch(0.145 0 0)' }}>
-        <h2 className="text-xl font-semibold" style={{ color: 'oklch(0.488 0.243 264.376)' }}>LIFTS</h2>
+      <header className="flex justify-between items-center p-6 border-b" style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-card)' }}>
+        <h2 className="text-xl font-semibold" style={{ color: 'var(--color-accent)' }}>LIFTS</h2>
         <div className="flex gap-2">
           <button
             onClick={testDatabaseConnection}
             className="px-3 py-1 rounded-lg text-sm hover:scale-105 transition-all duration-200"
-            style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'oklch(0.985 0 0)' }}
+            style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)' }}
           >
             Test DB Connection
           </button>
           <button
             onClick={runDebugChecks}
             className="px-3 py-1 rounded-lg text-sm hover:scale-105 transition-all duration-200"
-            style={{ backgroundColor: 'oklch(0.627 0.265 303.9)', color: 'oklch(0.205 0 0)' }}
+            style={{ backgroundColor: 'var(--color-lifting)', color: 'var(--color-button-text)' }}
           >
             <Bug className="inline h-4 w-4 mr-1" />
             Debug
@@ -314,13 +314,13 @@ export default function LiftsPage() {
       {/* Content */}
       <div className="flex-1 p-6">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold" style={{ color: 'oklch(0.488 0.243 264.376)' }}>
+          <h1 className="text-2xl font-bold" style={{ color: 'var(--color-accent)' }}>
             Lifting Workouts
           </h1>
           <button
             onClick={addWorkout}
             className="flex items-center px-4 py-2 rounded-lg hover:scale-105 transition-all duration-200"
-            style={{ backgroundColor: 'oklch(0.488 0.243 264.376)', color: 'oklch(0.205 0 0)' }}
+            style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-button-text)' }}
           >
             <Plus className="mr-2 h-4 w-4" />
             Add Workout
@@ -329,11 +329,11 @@ export default function LiftsPage() {
 
         {workouts.length === 0 ? (
           <div className="text-center py-12">
-            <Dumbbell className="mx-auto h-12 w-12 mb-4" style={{ color: 'oklch(0.708 0 0)' }} />
-            <h3 className="text-lg font-medium mb-2" style={{ color: 'oklch(0.985 0 0)' }}>
+            <Dumbbell className="mx-auto h-12 w-12 mb-4" style={{ color: 'var(--color-secondary)' }} />
+            <h3 className="text-lg font-medium mb-2" style={{ color: 'var(--color-foreground)' }}>
               No workouts yet
             </h3>
-            <p style={{ color: 'oklch(0.708 0 0)' }}>
+            <p style={{ color: 'var(--color-secondary)' }}>
               Start tracking your lifting progress by adding your first workout.
             </p>
           </div>
@@ -343,10 +343,10 @@ export default function LiftsPage() {
               <div
                 key={workout.id}
                 className="rounded-lg p-6 border"
-                style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}
+                style={{ backgroundColor: 'var(--color-card)', borderColor: 'var(--color-muted)' }}
               >
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-semibold" style={{ color: 'oklch(0.985 0 0)' }}>
+                  <h3 className="text-lg font-semibold" style={{ color: 'var(--color-foreground)' }}>
                     {workout.date}
                   </h3>
                   <div className="flex items-center gap-2">
@@ -354,14 +354,14 @@ export default function LiftsPage() {
                       <button
                         onClick={() => saveWorkout(workout.id)}
                         className="flex items-center px-3 py-1 rounded-lg hover:scale-105 transition-all duration-200 text-sm"
-                        style={{ backgroundColor: 'oklch(0.488 0.243 264.376)', color: 'oklch(0.205 0 0)' }}
+                        style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-button-text)' }}
                       >
                         <Save className="mr-1 h-3 w-3" />
                         Save
                       </button>
                     )}
                     {workout.isSaved && (
-                      <div className="flex items-center px-3 py-1 rounded-lg text-sm" style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'oklch(0.708 0 0)' }}>
+                      <div className="flex items-center px-3 py-1 rounded-lg text-sm" style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-secondary)' }}>
                         <CheckCircle className="mr-1 h-3 w-3" />
                         Saved
                       </div>
@@ -369,29 +369,29 @@ export default function LiftsPage() {
                     <button
                       onClick={() => deleteWorkout(workout.id)}
                       className="p-2 rounded-lg hover:scale-105 transition-all duration-200"
-                      style={{ backgroundColor: 'oklch(0.269 0 0)' }}
+                      style={{ backgroundColor: 'var(--color-muted)' }}
                     >
-                      <Trash2 className="h-4 w-4" style={{ color: 'oklch(0.985 0 0)' }} />
+                      <Trash2 className="h-4 w-4" style={{ color: 'var(--color-foreground)' }} />
                     </button>
                   </div>
                 </div>
 
                 {workout.exercises.length === 0 ? (
                   <div className="text-center py-4">
-                    <p style={{ color: 'oklch(0.708 0 0)' }}>No exercises added yet.</p>
+                    <p style={{ color: 'var(--color-secondary)' }}>No exercises added yet.</p>
                   </div>
                 ) : (
                   <div className="space-y-4">
                     {workout.exercises.map((exercise, exerciseIndex) => (
                       <div key={exerciseIndex} className="space-y-2">
-                        <h4 className="font-medium" style={{ color: 'oklch(0.985 0 0)' }}>
+                        <h4 className="font-medium" style={{ color: 'var(--color-foreground)' }}>
                           {exercise.name}
                         </h4>
                         <div className="grid grid-cols-2 gap-4 text-sm">
                           {exercise.sets.map((set, setIndex) => (
                             <div key={setIndex} className="flex justify-between">
-                              <span style={{ color: 'oklch(0.708 0 0)' }}>Set {setIndex + 1}:</span>
-                              <span style={{ color: 'oklch(0.985 0 0)' }}>
+                              <span style={{ color: 'var(--color-secondary)' }}>Set {setIndex + 1}:</span>
+                              <span style={{ color: 'var(--color-foreground)' }}>
                                 {set.weight} lbs × {set.reps} reps
                               </span>
                             </div>
@@ -400,7 +400,7 @@ export default function LiftsPage() {
                         <button
                           onClick={() => addSet(workout.id, exerciseIndex)}
                           className="text-sm px-3 py-1 rounded-lg hover:scale-105 transition-all duration-200"
-                          style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'oklch(0.985 0 0)' }}
+                          style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)' }}
                         >
                           Add Set
                         </button>
@@ -409,7 +409,7 @@ export default function LiftsPage() {
                   </div>
                 )}
 
-                <div className="mt-4 pt-4 border-t" style={{ borderColor: 'oklch(0.269 0 0)' }}>
+                <div className="mt-4 pt-4 border-t" style={{ borderColor: 'var(--color-muted)' }}>
                   <div className="grid grid-cols-3 gap-4">
                     {/* Exercise Name Dropdown */}
                     <div className="relative" ref={dropdownRef}>
@@ -417,7 +417,7 @@ export default function LiftsPage() {
                         type="button"
                         onClick={toggleExerciseDropdown}
                         className="w-full px-3 py-2 rounded-lg text-sm text-left flex items-center justify-between"
-                        style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'oklch(0.985 0 0)', border: '1px solid oklch(0.269 0 0)' }}
+                        style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
                       >
                         <span className={currentExercise ? 'text-oklch(0.985 0 0)' : 'text-oklch(0.708 0 0)'}>
                           {currentExercise || 'Exercise name'}
@@ -427,11 +427,11 @@ export default function LiftsPage() {
                       
                       {showExerciseDropdown && (
                         <div className="absolute z-10 w-full mt-1 rounded-lg border shadow-lg max-h-60 overflow-hidden"
-                             style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}>
+                             style={{ backgroundColor: 'var(--color-card)', borderColor: 'var(--color-muted)' }}>
                           {/* Search Input */}
-                          <div className="p-2 border-b" style={{ borderColor: 'oklch(0.269 0 0)' }}>
+                          <div className="p-2 border-b" style={{ borderColor: 'var(--color-muted)' }}>
                             <div className="relative">
-                              <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4" style={{ color: 'oklch(0.708 0 0)' }} />
+                              <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4" style={{ color: 'var(--color-secondary)' }} />
                               <input
                                 type="text"
                                 placeholder="Search exercises..."
@@ -439,11 +439,11 @@ export default function LiftsPage() {
                                 onChange={(e) => setExerciseSearchTerm(e.target.value)}
                                 onKeyDown={handleKeyDown}
                                 className="w-full pl-8 pr-3 py-2 text-sm rounded-lg"
-                                style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'oklch(0.985 0 0)', border: '1px solid oklch(0.269 0 0)' }}
+                                style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
                                 autoFocus
                               />
                             </div>
-                            <div className="mt-1 text-xs text-center" style={{ color: 'oklch(0.708 0 0)' }}>
+                            <div className="mt-1 text-xs text-center" style={{ color: 'var(--color-secondary)' }}>
                               {filteredExercises.length} exercise{filteredExercises.length !== 1 ? 's' : ''} available
                             </div>
                           </div>
@@ -451,11 +451,11 @@ export default function LiftsPage() {
                           {/* Exercise List */}
                           <div className="max-h-48 overflow-y-auto">
                             {isLoadingExercises ? (
-                              <div className="p-3 text-center text-sm" style={{ color: 'oklch(0.708 0 0)' }}>
+                              <div className="p-3 text-center text-sm" style={{ color: 'var(--color-secondary)' }}>
                                 Loading exercises...
                               </div>
                             ) : filteredExercises.length === 0 ? (
-                              <div className="p-3 text-center text-sm" style={{ color: 'oklch(0.708 0 0)' }}>
+                              <div className="p-3 text-center text-sm" style={{ color: 'var(--color-secondary)' }}>
                                 {exerciseSearchTerm ? 'No exercises found' : 'No exercises found'}
                               </div>
                             ) : (
@@ -465,8 +465,8 @@ export default function LiftsPage() {
                                   onClick={() => selectExercise(exercise.name)}
                                   className="w-full px-3 py-2 text-left text-sm hover:scale-105 transition-all duration-200 hover:bg-opacity-80"
                                   style={{ 
-                                    backgroundColor: index === selectedExerciseIndex ? 'oklch(0.488 0.243 264.376)' : 'oklch(0.269 0 0)', 
-                                    color: index === selectedExerciseIndex ? 'oklch(0.205 0 0)' : 'oklch(0.985 0 0)',
+                                    backgroundColor: index === selectedExerciseIndex ? 'oklch(0.488 0.243 264.376)' : 'var(--color-muted)', 
+                                    color: index === selectedExerciseIndex ? 'oklch(0.205 0 0)' : 'var(--color-foreground)',
                                     borderBottom: '1px solid oklch(0.269 0 0)',
                                     fontWeight: index === selectedExerciseIndex ? '600' : '400'
                                   }}
@@ -489,7 +489,7 @@ export default function LiftsPage() {
                       value={currentWeight}
                       onChange={(e) => setCurrentWeight(e.target.value)}
                       className="px-3 py-2 rounded-lg text-sm"
-                      style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'oklch(0.985 0 0)', border: '1px solid oklch(0.269 0 0)' }}
+                      style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
                     />
                     <input
                       type="number"
@@ -497,13 +497,13 @@ export default function LiftsPage() {
                       value={currentReps}
                       onChange={(e) => setCurrentReps(e.target.value)}
                       className="px-3 py-2 rounded-lg text-sm"
-                      style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'oklch(0.985 0 0)', border: '1px solid oklch(0.269 0 0)' }}
+                      style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
                     />
                   </div>
                   <button
                     onClick={() => addExercise(workout.id)}
                     className="mt-2 px-4 py-2 rounded-lg hover:scale-105 transition-all duration-200"
-                    style={{ backgroundColor: 'oklch(0.627 0.265 303.9)', color: 'oklch(0.985 0 0)' }}
+                    style={{ backgroundColor: 'oklch(0.627 0.265 303.9)', color: 'var(--color-foreground)' }}
                   >
                     Add Exercise
                   </button>

@@ -6,11 +6,11 @@ import { usePathname } from "next/navigation";
 import { Home, Calendar, Dumbbell, Activity, Mountain, User, ChevronLeft, ChevronRight } from "lucide-react";
 
 const navigation = [
-  { name: "Overview", href: "/", icon: Home, color: "oklch(74.1% 0.054 62.9)" }, // Terracotta
-  { name: "Calendar", href: "/calendar", icon: Calendar, color: "oklch(90% 0.012 235)" }, // Spring Rain
-  { name: "Lifts", href: "/lifts", icon: Dumbbell, color: "oklch(68.6% 0.021 73.1)" }, // Latte
-  { name: "Running", href: "/running", icon: Activity, color: "oklch(93.5% 0.005 250)" }, // Cool Gray
-  { name: "MTB", href: "/mtb", icon: Mountain, color: "oklch(79.6% 0.025 76.5)" }, // Dusk
+  { name: "Overview", href: "/", icon: Home, color: "var(--color-accent)" },
+  { name: "Calendar", href: "/calendar", icon: Calendar, color: "var(--color-border)" },
+  { name: "Lifts", href: "/lifts", icon: Dumbbell, color: "var(--color-lifting)" },
+  { name: "Running", href: "/running", icon: Activity, color: "var(--color-running)" },
+  { name: "MTB", href: "/mtb", icon: Mountain, color: "var(--color-mtb)" },
 ];
 
 export default function NavigationSidebar() {
@@ -46,16 +46,16 @@ export default function NavigationSidebar() {
       className={`flex flex-col border-r transition-all duration-300 ease-in-out ${
         isCollapsed ? 'w-16' : 'w-64'
       }`} 
-      style={{ backgroundColor: 'oklch(87.1% 0.018 78.4)', borderColor: 'oklch(90% 0.012 235)' }} // Sweet Beige background, Spring Rain border
+      style={{ backgroundColor: 'var(--color-card)', borderColor: 'var(--color-border)' }}
     >
       {/* Header Section */}
-      <div className="p-6 border-b relative" style={{ borderColor: 'oklch(90% 0.012 235)' }}> {/* Spring Rain border */}
+      <div className="p-6 border-b relative" style={{ borderColor: 'var(--color-border)' }}>
         {!isCollapsed && (
           <>
-            <h1 className="text-2xl font-bold" style={{ color: 'oklch(74.1% 0.054 62.9)', fontFamily: 'var(--font-rebels, Orbitron)' }}> {/* Terracotta */}
+            <h1 className="text-2xl font-bold" style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-rebels, Orbitron)' }}>
               CAZULS VOID
             </h1>
-            <p className="text-sm" style={{ color: 'oklch(91% 0.007 90)', fontFamily: 'var(--font-main, Exo 2)' }}>Fitness Tracker</p> {/* Taupe */}
+            <p className="text-sm" style={{ color: 'var(--color-secondary)', fontFamily: 'var(--font-main, Exo 2)' }}>Fitness Tracker</p>
           </>
         )}
         
@@ -66,9 +66,9 @@ export default function NavigationSidebar() {
             isCollapsed ? 'right-2' : '-right-3'
           }`}
           style={{
-            backgroundColor: 'oklch(79.6% 0.025 76.5)', // Dusk
-            color: 'oklch(68.6% 0.021 73.1)', // Latte
-            border: '2px solid oklch(90% 0.012 235)' // Spring Rain
+            backgroundColor: 'var(--color-active)',
+            color: 'var(--color-foreground)',
+            border: '2px solid var(--color-border)'
           }}
           aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
@@ -94,7 +94,7 @@ export default function NavigationSidebar() {
                 isActive ? 'opacity-100' : 'hover:opacity-80'
               }`}
               style={{ 
-                backgroundColor: isActive ? 'oklch(88.7% 0.009 89.1)' : 'transparent' // Oat for active state
+                backgroundColor: isActive ? 'var(--color-hover)' : 'transparent'
               }}
               title={isCollapsed ? item.name : undefined}
             >
@@ -105,7 +105,7 @@ export default function NavigationSidebar() {
                 />
               )}
               {!isCollapsed && (
-                <span style={{ color: 'oklch(68.6% 0.021 73.1)' }}>{item.name}</span>
+                <span style={{ color: 'var(--color-foreground)' }}>{item.name}</span>
               )}
             </Link>
           );
