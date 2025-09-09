@@ -201,10 +201,10 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
   // Get workout type color
   const getWorkoutTypeColor = (workoutType: 'lifting' | 'running' | 'mtb') => {
     switch (workoutType) {
-      case 'lifting': return 'oklch(0.488 0.243 264.376)';
-      case 'running': return 'oklch(0.769 0.188 70.08)';
-      case 'mtb': return 'oklch(0.645 0.246 16.439)';
-      default: return 'oklch(0.708 0 0)';
+      case 'lifting': return 'oklch(68.6% 0.021 73.1)'; // Latte
+      case 'running': return 'oklch(93.5% 0.005 250)'; // Cool Gray
+      case 'mtb': return 'oklch(79.6% 0.025 76.5)'; // Dusk
+      default: return 'oklch(91% 0.007 90)'; // Taupe
     }
   };
 
@@ -227,8 +227,8 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 mx-auto mb-4" style={{ borderColor: 'oklch(0.488 0.243 264.376)' }}></div>
-          <p style={{ color: 'oklch(0.708 0 0)' }}>Loading unified workout records...</p>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 mx-auto mb-4" style={{ borderColor: 'oklch(74.1% 0.054 62.9)' }}></div> {/* Terracotta */}
+          <p style={{ color: 'oklch(91% 0.007 90)' }}>Loading unified workout records...</p> {/* Taupe */}
         </div>
       </div>
     );
@@ -238,41 +238,41 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
     <div className={`space-y-6 ${className}`}>
       {/* Header Stats */}
       <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-        <div className="p-4 rounded-lg border" style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}>
-          <div className="text-2xl font-bold" style={{ color: 'oklch(0.488 0.243 264.376)' }}>
+        <div className="p-4 rounded-lg border" style={{ backgroundColor: 'oklch(87.1% 0.018 78.4)', borderColor: 'oklch(90% 0.012 235)' }}> {/* Sweet Beige background, Spring Rain border */}
+          <div className="text-2xl font-bold" style={{ color: 'oklch(74.1% 0.054 62.9)' }}> {/* Terracotta */}
             {stats.totalSets}
           </div>
-          <div className="text-sm" style={{ color: 'oklch(0.708 0 0)' }}>Total Sets</div>
+          <div className="text-sm" style={{ color: 'oklch(91% 0.007 90)' }}>Total Sets</div> {/* Taupe */}
         </div>
-        <div className="p-4 rounded-lg border" style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}>
-          <div className="text-2xl font-bold" style={{ color: 'oklch(0.488 0.243 264.376)' }}>
+        <div className="p-4 rounded-lg border" style={{ backgroundColor: 'oklch(87.1% 0.018 78.4)', borderColor: 'oklch(90% 0.012 235)' }}> {/* Sweet Beige background, Spring Rain border */}
+          <div className="text-2xl font-bold" style={{ color: 'oklch(74.1% 0.054 62.9)' }}> {/* Terracotta */}
             {stats.totalWorkouts}
           </div>
-          <div className="text-sm" style={{ color: 'oklch(0.708 0 0)' }}>Total Workouts</div>
+          <div className="text-sm" style={{ color: 'oklch(91% 0.007 90)' }}>Total Workouts</div> {/* Taupe */}
         </div>
-        <div className="p-4 rounded-lg border" style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}>
-          <div className="text-lg font-bold" style={{ color: 'oklch(0.488 0.243 264.376)' }}>
+        <div className="p-4 rounded-lg border" style={{ backgroundColor: 'oklch(87.1% 0.018 78.4)', borderColor: 'oklch(90% 0.012 235)' }}> {/* Sweet Beige background, Spring Rain border */}
+          <div className="text-lg font-bold" style={{ color: 'oklch(74.1% 0.054 62.9)' }}> {/* Terracotta */}
             {stats.totalRunningWorkouts}
           </div>
-          <div className="text-sm" style={{ color: 'oklch(0.708 0 0)' }}>Running</div>
+          <div className="text-sm" style={{ color: 'oklch(91% 0.007 90)' }}>Running</div> {/* Taupe */}
         </div>
-        <div className="p-4 rounded-lg border" style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}>
-          <div className="text-lg font-bold" style={{ color: 'oklch(0.488 0.243 264.376)' }}>
+        <div className="p-4 rounded-lg border" style={{ backgroundColor: 'oklch(87.1% 0.018 78.4)', borderColor: 'oklch(90% 0.012 235)' }}> {/* Sweet Beige background, Spring Rain border */}
+          <div className="text-lg font-bold" style={{ color: 'oklch(74.1% 0.054 62.9)' }}> {/* Terracotta */}
             {stats.totalMTBWorkouts}
           </div>
-          <div className="text-sm" style={{ color: 'oklch(0.708 0 0)' }}>MTB Rides</div>
+          <div className="text-sm" style={{ color: 'oklch(91% 0.007 90)' }}>MTB Rides</div> {/* Taupe */}
         </div>
-        <div className="p-4 rounded-lg border" style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}>
-          <div className="text-lg font-bold" style={{ color: 'oklch(0.488 0.243 264.376)' }}>
+        <div className="p-4 rounded-lg border" style={{ backgroundColor: 'oklch(87.1% 0.018 78.4)', borderColor: 'oklch(90% 0.012 235)' }}> {/* Sweet Beige background, Spring Rain border */}
+          <div className="text-lg font-bold" style={{ color: 'oklch(74.1% 0.054 62.9)' }}> {/* Terracotta */}
             {formatDate(stats.earliestDate)}
           </div>
-          <div className="text-sm" style={{ color: 'oklch(0.708 0 0)' }}>First Workout</div>
+          <div className="text-sm" style={{ color: 'oklch(91% 0.007 90)' }}>First Workout</div> {/* Taupe */}
         </div>
-        <div className="p-4 rounded-lg border" style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}>
-          <div className="text-lg font-bold" style={{ color: 'oklch(0.488 0.243 264.376)' }}>
+        <div className="p-4 rounded-lg border" style={{ backgroundColor: 'oklch(87.1% 0.018 78.4)', borderColor: 'oklch(90% 0.012 235)' }}> {/* Sweet Beige background, Spring Rain border */}
+          <div className="text-lg font-bold" style={{ color: 'oklch(74.1% 0.054 62.9)' }}> {/* Terracotta */}
             {formatDate(stats.latestDate)}
           </div>
-          <div className="text-sm" style={{ color: 'oklch(0.708 0 0)' }}>Latest Workout</div>
+          <div className="text-sm" style={{ color: 'oklch(91% 0.007 90)' }}>Latest Workout</div> {/* Taupe */}
         </div>
       </div>
 
@@ -393,16 +393,16 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
       </div>
 
       {/* Unified Records Table */}
-      <div className="rounded-lg border overflow-hidden" style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}>
+      <div className="rounded-lg border overflow-hidden" style={{ backgroundColor: 'oklch(87.1% 0.018 78.4)', borderColor: 'oklch(90% 0.012 235)' }}> /* Sweet Beige background, Spring Rain border */
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr style={{ backgroundColor: 'oklch(0.269 0 0)' }}>
+              <tr style={{ backgroundColor: 'oklch(88.7% 0.009 89.1)' }}> /* Oat */
                 <th className="px-4 py-3 text-left">
                   <button
                     onClick={() => handleSort('date')}
                     className="flex items-center gap-1 hover:scale-105 transition-all duration-200 font-medium"
-                    style={{ color: 'oklch(0.985 0 0)' }}
+                    style={{ color: 'oklch(68.6% 0.021 73.1)' }} /* Latte */
                   >
                     Date {getSortIcon('date')}
                   </button>
@@ -411,7 +411,7 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
                   <button
                     onClick={() => handleSort('workoutType')}
                     className="flex items-center gap-1 hover:scale-105 transition-all duration-200 font-medium"
-                    style={{ color: 'oklch(0.985 0 0)' }}
+                    style={{ color: 'oklch(68.6% 0.021 73.1)' }} /* Latte */
                   >
                     Type {getSortIcon('workoutType')}
                   </button>
@@ -420,7 +420,7 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
                   <button
                     onClick={() => handleSort('type')}
                     className="flex items-center gap-1 hover:scale-105 transition-all duration-200 font-medium"
-                    style={{ color: 'oklch(0.985 0 0)' }}
+                    style={{ color: 'oklch(68.6% 0.021 73.1)' }} /* Latte */
                   >
                     Workout {getSortIcon('type')}
                   </button>
@@ -429,7 +429,7 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
                   <button
                     onClick={() => handleSort('category')}
                     className="flex items-center gap-1 hover:scale-105 transition-all duration-200 font-medium"
-                    style={{ color: 'oklch(0.985 0 0)' }}
+                    style={{ color: 'oklch(68.6% 0.021 73.1)' }} /* Latte */
                   >
                     Category {getSortIcon('category')}
                   </button>
@@ -438,7 +438,7 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
                   <button
                     onClick={() => handleSort('distance')}
                     className="flex items-center gap-1 hover:scale-105 transition-all duration-200 font-medium"
-                    style={{ color: 'oklch(0.985 0 0)' }}
+                    style={{ color: 'oklch(68.6% 0.021 73.1)' }} /* Latte */
                   >
                     Distance {getSortIcon('distance')}
                   </button>
@@ -447,7 +447,7 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
                   <button
                     onClick={() => handleSort('duration')}
                     className="flex items-center gap-1 hover:scale-105 transition-all duration-200 font-medium"
-                    style={{ color: 'oklch(0.985 0 0)' }}
+                    style={{ color: 'oklch(68.6% 0.021 73.1)' }} /* Latte */
                   >
                     Duration {getSortIcon('duration')}
                   </button>
@@ -456,7 +456,7 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
                   <button
                     onClick={() => handleSort('weight')}
                     className="flex items-center gap-1 hover:scale-105 transition-all duration-200 font-medium"
-                    style={{ color: 'oklch(0.985 0 0)' }}
+                    style={{ color: 'oklch(68.6% 0.021 73.1)' }} /* Latte */
                   >
                     Weight {getSortIcon('weight')}
                   </button>
@@ -465,7 +465,7 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
                   <button
                     onClick={() => handleSort('reps')}
                     className="flex items-center gap-1 hover:scale-105 transition-all duration-200 font-medium"
-                    style={{ color: 'oklch(0.985 0 0)' }}
+                    style={{ color: 'oklch(68.6% 0.021 73.1)' }} /* Latte */
                   >
                     Reps {getSortIcon('reps')}
                   </button>
@@ -474,7 +474,7 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
                   <button
                     onClick={() => handleSort('setNumber')}
                     className="flex items-center gap-1 hover:scale-105 transition-all duration-200 font-medium"
-                    style={{ color: 'oklch(0.985 0 0)' }}
+                    style={{ color: 'oklch(68.6% 0.021 73.1)' }} /* Latte */
                   >
                     Set {getSortIcon('setNumber')}
                   </button>
@@ -488,9 +488,9 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
                   className={`hover:scale-[1.01] transition-all duration-200 ${
                     index % 2 === 0 ? 'bg-opacity-50' : ''
                   }`}
-                  style={{ backgroundColor: index % 2 === 0 ? 'oklch(0.269 0 0)' : 'transparent' }}
+                  style={{ backgroundColor: index % 2 === 0 ? 'oklch(88.7% 0.009 89.1)' : 'transparent' }} /* Oat for alternating rows */
                 >
-                  <td className="px-4 py-3 text-sm" style={{ color: 'oklch(0.985 0 0)' }}>
+                  <td className="px-4 py-3 text-sm" style={{ color: 'oklch(68.6% 0.021 73.1)' }}> /* Latte */
                     {formatDate(workout.date)}
                   </td>
                   <td className="px-4 py-3">
@@ -502,7 +502,7 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
                       {workout.workoutType.charAt(0).toUpperCase() + workout.workoutType.slice(1)}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-sm font-medium" style={{ color: 'oklch(0.985 0 0)' }}>
+                  <td className="px-4 py-3 text-sm font-medium" style={{ color: 'oklch(68.6% 0.021 73.1)' }}> /* Latte */
                     {workout.type}
                   </td>
                   <td className="px-4 py-3">
@@ -513,19 +513,19 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
                       {workout.category}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-sm" style={{ color: 'oklch(0.985 0 0)' }}>
+                  <td className="px-4 py-3 text-sm" style={{ color: 'oklch(68.6% 0.021 73.1)' }}> /* Latte */
                     {workout.distance ? `${workout.distance} mi` : '-'}
                   </td>
-                  <td className="px-4 py-3 text-sm" style={{ color: 'oklch(0.985 0 0)' }}>
+                  <td className="px-4 py-3 text-sm" style={{ color: 'oklch(68.6% 0.021 73.1)' }}> /* Latte */
                     {workout.duration ? formatDuration(workout.duration) : '-'}
                   </td>
-                  <td className="px-4 py-3 text-sm" style={{ color: 'oklch(0.985 0 0)' }}>
+                  <td className="px-4 py-3 text-sm" style={{ color: 'oklch(68.6% 0.021 73.1)' }}> /* Latte */
                     {workout.weight ? `${workout.weight} lbs` : '-'}
                   </td>
-                  <td className="px-4 py-3 text-sm" style={{ color: 'oklch(0.985 0 0)' }}>
+                  <td className="px-4 py-3 text-sm" style={{ color: 'oklch(68.6% 0.021 73.1)' }}> /* Latte */
                     {workout.reps || '-'}
                   </td>
-                  <td className="px-4 py-3 text-sm" style={{ color: 'oklch(0.708 0 0)' }}>
+                  <td className="px-4 py-3 text-sm" style={{ color: 'oklch(91% 0.007 90)' }}> /* Taupe */
                     {workout.setNumber || '-'}
                   </td>
                 </tr>
@@ -537,10 +537,10 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
         {/* Empty State */}
         {unifiedWorkouts.length === 0 && !isLoading && (
           <div className="text-center py-12">
-            <p className="text-lg font-medium mb-2" style={{ color: 'oklch(0.985 0 0)' }}>
+            <p className="text-lg font-medium mb-2" style={{ color: 'oklch(68.6% 0.021 73.1)' }}> /* Latte */
               No workout records found
             </p>
-            <p style={{ color: 'oklch(0.708 0 0)' }}>
+            <p style={{ color: 'oklch(91% 0.007 90)' }}> /* Taupe */
               {filters.searchTerm || filters.workoutTypes || filters.muscleGroups || filters.dateRange
                 ? 'Try adjusting your filters or search terms.'
                 : 'Start logging workouts in the Lifts, Running, and MTB pages to see your records here!'}
@@ -551,14 +551,14 @@ export default function RecordsTable({ className = "" }: RecordsTableProps) {
         {/* Loading State */}
         {isLoading && unifiedWorkouts.length > 0 && (
           <div className="text-center py-4">
-            <div className="animate-spin rounded-full h-6 w-6 border-b-2 mx-auto mb-2" style={{ borderColor: 'oklch(0.488 0.243 264.376)' }}></div>
+            <div className="animate-spin rounded-full h-6 w-6 border-b-2 mx-auto mb-2" style={{ borderColor: 'oklch(74.1% 0.054 62.9)' }}></div> /* Terracotta */
             <p className="text-sm" style={{ color: 'oklch(0.708 0 0)' }}>Updating records...</p>
           </div>
         )}
       </div>
 
       {/* Results Count */}
-      <div className="text-center text-sm" style={{ color: 'oklch(0.708 0 0)' }}>
+      <div className="text-center text-sm" style={{ color: 'oklch(91% 0.007 90)' }}> /* Taupe */
         Showing {unifiedWorkouts.length} workout record{unifiedWorkouts.length !== 1 ? 's' : ''}
         {filters.searchTerm && ` matching "${filters.searchTerm}"`}
         {filters.workoutTypes && filters.workoutTypes.length > 0 && ` of type(s): ${filters.workoutTypes.join(', ')}`}

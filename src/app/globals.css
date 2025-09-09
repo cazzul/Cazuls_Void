@@ -16,8 +16,8 @@
 
 body {
   font-family: 'Exo 2', sans-serif;
-  background-color: oklch(0.145 0 0);
-  color: oklch(0.985 0 0);
+  background-color: oklch(92.3% 0.012 101.5); /* Sand */
+  color: oklch(68.6% 0.021 73.1); /* Latte */
 }
 
 /* Custom scrollbar */
@@ -26,16 +26,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: oklch(0.205 0 0);
+  background: oklch(88.7% 0.009 89.1); /* Oat */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: oklch(0.269 0 0);
+  background: oklch(79.6% 0.025 76.5); /* Dusk */
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: oklch(0.488 0.243 264.376);
+  background: oklch(74.1% 0.054 62.9); /* Terracotta */
 }
 
 /* Smooth transitions */

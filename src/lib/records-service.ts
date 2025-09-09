@@ -311,13 +311,13 @@ export class RecordsService {
 
   private static getRunningColor(runType: string): string {
     const colors: Record<string, string> = {
-      'easy': 'oklch(0.769 0.188 70.08)',
-      'tempo': 'oklch(0.488 0.243 264.376)',
-      'intervals': 'oklch(0.627 0.265 303.9)',
-      'long': 'oklch(0.696 0.17 162.48)',
-      'recovery': 'oklch(0.645 0.246 16.439)'
+      'easy': 'oklch(87.1% 0.018 78.4)', // Sweet Beige
+      'tempo': 'oklch(74.1% 0.054 62.9)', // Terracotta
+      'intervals': 'oklch(68.6% 0.021 73.1)', // Latte
+      'long': 'oklch(90% 0.012 235)', // Spring Rain
+      'recovery': 'oklch(88.7% 0.009 89.1)' // Oat
     };
-    return colors[runType] || 'oklch(0.708 0 0)';
+    return colors[runType] || 'oklch(91% 0.007 90)'; // Taupe fallback
   }
 
   // Get MTB category and color
@@ -333,12 +333,12 @@ export class RecordsService {
 
   private static getMTBColor(rideType: string): string {
     const colors: Record<string, string> = {
-      'endurance': 'oklch(0.645 0.246 16.439)',
-      'power': 'oklch(0.488 0.243 264.376)',
-      'recovery': 'oklch(0.708 0 0)',
-      'climbing': 'oklch(0.769 0.188 70.08)'
+      'endurance': 'oklch(77.1% 0.035 69)', // Buffed Beige
+      'power': 'oklch(74.1% 0.054 62.9)', // Terracotta
+      'recovery': 'oklch(91% 0.007 90)', // Taupe
+      'climbing': 'oklch(90% 0.012 235)' // Spring Rain
     };
-    return colors[rideType] || 'oklch(0.708 0 0)';
+    return colors[rideType] || 'oklch(91% 0.007 90)'; // Taupe fallback
   }
 
   // Get all working sets (lifting only - for backward compatibility)
@@ -523,7 +523,7 @@ export class RecordsService {
       }
 
       if (allDates.length === 0) {
-        return {
+      return {
           earliestDate: new Date().toISOString().split('T')[0],
           latestDate: new Date().toISOString().split('T')[0],
           totalSets: 0,

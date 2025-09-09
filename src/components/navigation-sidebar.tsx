@@ -6,11 +6,11 @@ import { usePathname } from "next/navigation";
 import { Home, Calendar, Dumbbell, Activity, Mountain, User, ChevronLeft, ChevronRight } from "lucide-react";
 
 const navigation = [
-  { name: "Overview", href: "/", icon: Home, color: "oklch(0.488 0.243 264.376)" },
-  { name: "Calendar", href: "/calendar", icon: Calendar, color: "oklch(0.696 0.17 162.48)" },
-  { name: "Lifts", href: "/lifts", icon: Dumbbell, color: "oklch(0.627 0.265 303.9)" },
-  { name: "Running", href: "/running", icon: Activity, color: "oklch(0.769 0.188 70.08)" },
-  { name: "MTB", href: "/mtb", icon: Mountain, color: "oklch(0.645 0.246 16.439)" },
+  { name: "Overview", href: "/", icon: Home, color: "oklch(74.1% 0.054 62.9)" }, // Terracotta
+  { name: "Calendar", href: "/calendar", icon: Calendar, color: "oklch(90% 0.012 235)" }, // Spring Rain
+  { name: "Lifts", href: "/lifts", icon: Dumbbell, color: "oklch(68.6% 0.021 73.1)" }, // Latte
+  { name: "Running", href: "/running", icon: Activity, color: "oklch(93.5% 0.005 250)" }, // Cool Gray
+  { name: "MTB", href: "/mtb", icon: Mountain, color: "oklch(79.6% 0.025 76.5)" }, // Dusk
 ];
 
 export default function NavigationSidebar() {
@@ -46,16 +46,16 @@ export default function NavigationSidebar() {
       className={`flex flex-col border-r transition-all duration-300 ease-in-out ${
         isCollapsed ? 'w-16' : 'w-64'
       }`} 
-      style={{ backgroundColor: 'oklch(0.205 0 0)', borderColor: 'oklch(0.269 0 0)' }}
+      style={{ backgroundColor: 'oklch(87.1% 0.018 78.4)', borderColor: 'oklch(90% 0.012 235)' }} // Sweet Beige background, Spring Rain border
     >
       {/* Header Section */}
-      <div className="p-6 border-b relative" style={{ borderColor: 'oklch(0.269 0 0)' }}>
+      <div className="p-6 border-b relative" style={{ borderColor: 'oklch(90% 0.012 235)' }}> {/* Spring Rain border */}
         {!isCollapsed && (
           <>
-            <h1 className="text-2xl font-bold" style={{ color: 'oklch(0.488 0.243 264.376)', fontFamily: 'var(--font-rebels, Orbitron)' }}>
+            <h1 className="text-2xl font-bold" style={{ color: 'oklch(74.1% 0.054 62.9)', fontFamily: 'var(--font-rebels, Orbitron)' }}> {/* Terracotta */}
               CAZULS VOID
             </h1>
-            <p className="text-sm" style={{ color: 'oklch(0.708 0 0)', fontFamily: 'var(--font-main, Exo 2)' }}>Fitness Tracker</p>
+            <p className="text-sm" style={{ color: 'oklch(91% 0.007 90)', fontFamily: 'var(--font-main, Exo 2)' }}>Fitness Tracker</p> {/* Taupe */}
           </>
         )}
         
@@ -65,10 +65,10 @@ export default function NavigationSidebar() {
           className={`absolute top-1/2 transform -translate-y-1/2 p-2 rounded-lg hover:scale-105 transition-all duration-200 ${
             isCollapsed ? 'right-2' : '-right-3'
           }`}
-          style={{ 
-            backgroundColor: 'oklch(0.269 0 0)', 
-            color: 'oklch(0.985 0 0)',
-            border: '2px solid oklch(0.269 0 0)'
+          style={{
+            backgroundColor: 'oklch(79.6% 0.025 76.5)', // Dusk
+            color: 'oklch(68.6% 0.021 73.1)', // Latte
+            border: '2px solid oklch(90% 0.012 235)' // Spring Rain
           }}
           aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
@@ -94,7 +94,7 @@ export default function NavigationSidebar() {
                 isActive ? 'opacity-100' : 'hover:opacity-80'
               }`}
               style={{ 
-                backgroundColor: isActive ? 'oklch(0.269 0 0)' : 'transparent'
+                backgroundColor: isActive ? 'oklch(88.7% 0.009 89.1)' : 'transparent' // Oat for active state
               }}
               title={isCollapsed ? item.name : undefined}
             >
@@ -105,7 +105,7 @@ export default function NavigationSidebar() {
                 />
               )}
               {!isCollapsed && (
-                <span style={{ color: 'oklch(0.985 0 0)' }}>{item.name}</span>
+                <span style={{ color: 'oklch(68.6% 0.021 73.1)' }}>{item.name}</span>
               )}
             </Link>
           );
