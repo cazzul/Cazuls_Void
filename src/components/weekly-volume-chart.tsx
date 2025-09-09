@@ -12,15 +12,15 @@ import {
 } from "recharts";
 
 const customColors = {
-  chart1: 'oklch(0.488 0.243 264.376)',
-  chart2: 'oklch(0.696 0.17 162.48)',
-  chart3: 'oklch(0.769 0.188 70.08)',
-  chart4: 'oklch(0.627 0.265 303.9)',
-  chart5: 'oklch(0.645 0.246 16.439)',
-  border: 'oklch(0.269 0 0)',
-  mutedForeground: 'oklch(0.708 0 0)',
-  card: 'oklch(0.145 0 0)',
-  foreground: 'oklch(0.985 0 0)'
+  chart1: 'var(--color-accent)',
+  chart2: 'var(--color-border)',
+  chart3: 'var(--color-running)',
+  chart4: 'var(--color-lifting)',
+  chart5: 'var(--color-mtb)',
+  border: 'var(--color-muted)',
+  mutedForeground: 'var(--color-secondary)',
+  card: 'var(--color-card)',
+  foreground: 'var(--color-foreground)'
 };
 
 export interface WeeklyVolumeData {
@@ -45,7 +45,7 @@ export default function WeeklyVolumeChart({ data = [] }: WeeklyVolumeChartProps)
   if (!data || data.length === 0) {
     return (
       <div className="h-[400px] flex items-center justify-center">
-        <p style={{ color: 'oklch(0.708 0 0)' }}>No workout data available</p>
+        <p style={{ color: 'var(--color-secondary)' }}>No workout data available</p>
       </div>
     );
   }

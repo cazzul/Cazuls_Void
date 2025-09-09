@@ -59,13 +59,13 @@ export default function CalendarPage() {
   return (
     <>
       {/* Header */}
-      <header className="flex justify-between items-center p-6 border-b" style={{ borderColor: 'oklch(0.269 0 0)', backgroundColor: 'oklch(0.145 0 0)' }}>
-        <h2 className="text-xl font-semibold" style={{ color: 'oklch(0.488 0.243 264.376)' }}>CALENDAR</h2>
+      <header className="flex justify-between items-center p-6 border-b" style={{ borderColor: 'var(--color-muted)', backgroundColor: 'var(--color-card)' }}>
+        <h2 className="text-xl font-semibold" style={{ color: 'var(--color-accent)' }}>CALENDAR</h2>
         <div className="text-right">
-          <p className="text-lg font-bold" style={{ color: 'oklch(0.488 0.243 264.376)' }}>
+          <p className="text-lg font-bold" style={{ color: 'var(--color-accent)' }}>
             {currentTime.toLocaleTimeString()}
           </p>
-          <p className="text-xs" style={{ color: 'oklch(0.708 0 0)' }}>
+          <p className="text-xs" style={{ color: 'var(--color-secondary)' }}>
             {currentTime.toLocaleDateString()}
           </p>
         </div>
@@ -76,11 +76,11 @@ export default function CalendarPage() {
         {/* Running Phase Info */}
         {currentPhase && currentWeekInfo && currentTargets && (
           <div className="mb-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="rounded-lg p-6 border" style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}>
-              <h3 className="text-lg font-bold mb-3" style={{ color: 'oklch(0.488 0.243 264.376)' }}>
+            <div className="rounded-lg p-6 border" style={{ backgroundColor: 'var(--color-card)', borderColor: 'var(--color-muted)' }}>
+              <h3 className="text-lg font-bold mb-3" style={{ color: 'var(--color-accent)' }}>
                 Current Running Phase
               </h3>
-              <div className="space-y-2 text-sm" style={{ color: 'oklch(0.985 0 0)' }}>
+              <div className="space-y-2 text-sm" style={{ color: 'var(--color-foreground)' }}>
                 <p><strong>Phase:</strong> {currentPhase.name}</p>
                 <p><strong>Week:</strong> {currentWeekInfo.weekIndex + 1}</p>
                 <p><strong>Deload Week:</strong> {currentWeekInfo.isDeloadWeek ? 'Yes' : 'No'}</p>
@@ -90,11 +90,11 @@ export default function CalendarPage() {
               </div>
             </div>
             
-            <div className="rounded-lg p-6 border" style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}>
-              <h3 className="text-lg font-bold mb-3" style={{ color: 'oklch(0.769 0.188 70.08)' }}>
+            <div className="rounded-lg p-6 border" style={{ backgroundColor: 'var(--color-card)', borderColor: 'var(--color-muted)' }}>
+              <h3 className="text-lg font-bold mb-3" style={{ color: 'var(--color-running)' }}>
                 Running Progression
               </h3>
-              <div className="space-y-2 text-sm" style={{ color: 'oklch(0.985 0 0)' }}>
+              <div className="space-y-2 text-sm" style={{ color: 'var(--color-foreground)' }}>
                 <p>• Progressive distance increases</p>
                 <p>• Deload every 4th week (after Dec 18)</p>
                 <p>• Phase-based training cycles</p>
@@ -109,19 +109,19 @@ export default function CalendarPage() {
           <button
             onClick={goToPreviousWeek}
             className="p-2 rounded-lg hover:scale-105 transition-all duration-200"
-            style={{ backgroundColor: 'oklch(0.269 0 0)' }}
+            style={{ backgroundColor: 'var(--color-muted)' }}
           >
-            <ChevronLeft className="h-5 w-5" style={{ color: 'oklch(0.985 0 0)' }} />
+            <ChevronLeft className="h-5 w-5" style={{ color: 'var(--color-foreground)' }} />
           </button>
           
           <div className="text-center">
-            <h3 className="text-lg font-bold" style={{ color: 'oklch(0.488 0.243 264.376)' }}>
+            <h3 className="text-lg font-bold" style={{ color: 'var(--color-accent)' }}>
               {formatDate(weekDates[0])} - {formatDate(weekDates[6])}
             </h3>
             <button
               onClick={goToToday}
               className="text-sm px-3 py-1 rounded-lg hover:scale-105 transition-all duration-200"
-              style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'oklch(0.985 0 0)' }}
+              style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)' }}
             >
               Today
             </button>
@@ -130,9 +130,9 @@ export default function CalendarPage() {
           <button
             onClick={goToNextWeek}
             className="p-2 rounded-lg hover:scale-105 transition-all duration-200"
-            style={{ backgroundColor: 'oklch(0.269 0 0)' }}
+            style={{ backgroundColor: 'var(--color-muted)' }}
           >
-            <ChevronRight className="h-5 w-5" style={{ color: 'oklch(0.985 0 0)' }} />
+            <ChevronRight className="h-5 w-5" style={{ color: 'var(--color-foreground)' }} />
           </button>
         </div>
 
@@ -140,7 +140,7 @@ export default function CalendarPage() {
         <div className="grid grid-cols-7 gap-4 mb-6">
           {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
             <div key={day} className="text-center p-2">
-              <div className="text-sm font-medium" style={{ color: 'oklch(0.708 0 0)' }}>{day}</div>
+              <div className="text-sm font-medium" style={{ color: 'var(--color-secondary)' }}>{day}</div>
             </div>
           ))}
           
@@ -157,14 +157,14 @@ export default function CalendarPage() {
                   isTodayDate ? 'ring-2' : ''
                 } ${isSelected ? 'ring-2' : ''}`}
                 style={{ 
-                  backgroundColor: 'oklch(0.145 0 0)', 
-                  borderColor: isTodayDate || isSelected ? 'oklch(0.488 0.243 264.376)' : 'oklch(0.269 0 0)'
+                  backgroundColor: 'var(--color-card)', 
+                  borderColor: isTodayDate || isSelected ? 'var(--color-accent)' : 'var(--color-muted)'
                 }}
               >
-                <div className="text-sm font-medium mb-2" style={{ color: 'oklch(0.985 0 0)' }}>
+                <div className="text-sm font-medium mb-2" style={{ color: 'var(--color-foreground)' }}>
                   {date.getDate()}
                   {isTodayDate && (
-                    <span className="ml-2 text-xs px-2 py-1 rounded-full" style={{ backgroundColor: 'oklch(0.488 0.243 264.376)', color: 'oklch(0.205 0 0)' }}>
+                    <span className="ml-2 text-xs px-2 py-1 rounded-full" style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-button-text)' }}>
                       TODAY
                     </span>
                   )}
@@ -175,7 +175,7 @@ export default function CalendarPage() {
                       <div
                         key={i}
                         className="text-xs p-1 rounded"
-                        style={{ backgroundColor: w.color, color: 'oklch(0.985 0 0)' }}
+                        style={{ backgroundColor: w.color, color: 'var(--color-foreground)' }}
                       >
                         {w.type}
                       </div>
@@ -189,8 +189,8 @@ export default function CalendarPage() {
 
         {/* Selected Day Details */}
         {selectedDate && (
-          <div className="rounded-lg p-6 border" style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}>
-            <h3 className="text-lg font-bold mb-4" style={{ color: 'oklch(0.488 0.243 264.376)' }}>
+          <div className="rounded-lg p-6 border" style={{ backgroundColor: 'var(--color-card)', borderColor: 'var(--color-muted)' }}>
+            <h3 className="text-lg font-bold mb-4" style={{ color: 'var(--color-accent)' }}>
               {getDayName(selectedDate)} - {selectedDate.toLocaleDateString()}
             </h3>
             
@@ -198,7 +198,7 @@ export default function CalendarPage() {
               const workout = getWorkoutForDate(selectedDate);
               if (!workout) {
                 return (
-                  <p style={{ color: 'oklch(0.708 0 0)' }}>No workout scheduled for this day.</p>
+                  <p style={{ color: 'var(--color-secondary)' }}>No workout scheduled for this day.</p>
                 );
               }
 
@@ -212,13 +212,13 @@ export default function CalendarPage() {
                       
                       {w.exercises.length > 0 && (
                         <div>
-                          <h5 className="text-sm font-medium mb-2" style={{ color: 'oklch(0.985 0 0)' }}>
+                          <h5 className="text-sm font-medium mb-2" style={{ color: 'var(--color-foreground)' }}>
                             <Dumbbell className="inline h-4 w-4 mr-2" />
                             Exercises
                           </h5>
                           <ul className="space-y-1 ml-6">
                             {w.exercises.map((exercise, j) => (
-                              <li key={j} className="text-sm" style={{ color: 'oklch(0.985 0 0)' }}>
+                              <li key={j} className="text-sm" style={{ color: 'var(--color-foreground)' }}>
                                 • {exercise}
                               </li>
                             ))}
@@ -228,13 +228,13 @@ export default function CalendarPage() {
                       
                       {w.warmup.length > 0 && (
                         <div>
-                          <h5 className="text-sm font-medium mb-2" style={{ color: 'oklch(0.985 0 0)' }}>
+                          <h5 className="text-sm font-medium mb-2" style={{ color: 'var(--color-foreground)' }}>
                             <Zap className="inline h-4 w-4 mr-2" />
                             Warmup
                           </h5>
                           <ul className="space-y-1 ml-6">
                             {w.warmup.map((item, j) => (
-                              <li key={j} className="text-sm" style={{ color: 'oklch(0.985 0 0)' }}>
+                              <li key={j} className="text-sm" style={{ color: 'var(--color-foreground)' }}>
                                 • {item}
                               </li>
                             ))}
@@ -244,13 +244,13 @@ export default function CalendarPage() {
                       
                       {w.mobility.length > 0 && (
                         <div>
-                          <h5 className="text-sm font-medium mb-2" style={{ color: 'oklch(0.985 0 0)' }}>
+                          <h5 className="text-sm font-medium mb-2" style={{ color: 'var(--color-foreground)' }}>
                             <Activity className="inline h-4 w-4 mr-2" />
                             Mobility/Activation
                           </h5>
                           <ul className="space-y-1 ml-6">
                             {w.mobility.map((item, j) => (
-                              <li key={j} className="text-sm" style={{ color: 'oklch(0.985 0 0)' }}>
+                              <li key={j} className="text-sm" style={{ color: 'var(--color-foreground)' }}>
                                 • {item}
                               </li>
                             ))}
@@ -260,13 +260,13 @@ export default function CalendarPage() {
                       
                       {w.stretches.length > 0 && (
                         <div>
-                          <h5 className="text-sm font-medium mb-2" style={{ color: 'oklch(0.985 0 0)' }}>
+                          <h5 className="text-sm font-medium mb-2" style={{ color: 'var(--color-foreground)' }}>
                             <TrendingUp className="inline h-4 w-4 mr-2" />
                             Stretches
                           </h5>
                           <ul className="space-y-1 ml-6">
                             {w.stretches.map((item, j) => (
-                              <li key={j} className="text-sm" style={{ color: 'oklch(0.985 0 0)' }}>
+                              <li key={j} className="text-sm" style={{ color: 'var(--color-foreground)' }}>
                                 • {item}
                               </li>
                             ))}
