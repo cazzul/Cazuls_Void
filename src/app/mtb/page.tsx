@@ -370,14 +370,14 @@ export default function MTBPage() {
             <button
               onClick={testDatabaseConnection}
               className="px-3 py-1 text-sm rounded-lg hover:scale-105 transition-all duration-200"
-              style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)' }}
+              style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)' }}
             >
               Test Connection
             </button>
             <button
               onClick={debugDatabase}
               className="px-3 py-1 text-sm rounded-lg hover:scale-105 transition-all duration-200"
-              style={{ backgroundColor: 'oklch(0.488 0.243 264.376)', color: 'oklch(0.205 0 0)' }}
+              style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-button-text)' }}
             >
               Debug
             </button>
@@ -386,7 +386,7 @@ export default function MTBPage() {
       </div>
 
       {/* Add New Workout Form */}
-      <div className="mb-8 p-6 rounded-lg border" style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}>
+      <div className="mb-8 p-6 rounded-lg border" style={{ backgroundColor: 'var(--color-card)', borderColor: 'var(--color-muted)' }}>
         <h2 className="text-xl font-semibold mb-4" style={{ color: 'var(--color-foreground)' }}>
           Add New MTB Workout
         </h2>
@@ -402,7 +402,7 @@ export default function MTBPage() {
               value={newWorkout.distance}
               onChange={(e) => setNewWorkout({ ...newWorkout, distance: e.target.value })}
               className="w-full px-3 py-2 rounded-lg text-sm"
-              style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
+              style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid var(--color-border)' }}
               placeholder="15.5"
             />
           </div>
@@ -423,7 +423,7 @@ export default function MTBPage() {
                   value={newWorkout.hours}
                   onChange={(e) => setNewWorkout({ ...newWorkout, hours: e.target.value })}
                   className="w-full px-2 py-2 rounded-lg text-sm text-center"
-                  style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
+                  style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid var(--color-border)' }}
                   placeholder="1"
                 />
               </div>
@@ -439,7 +439,7 @@ export default function MTBPage() {
                   value={newWorkout.minutes}
                   onChange={(e) => setNewWorkout({ ...newWorkout, minutes: e.target.value })}
                   className="w-full px-2 py-2 rounded-lg text-sm text-center"
-                  style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
+                  style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid var(--color-border)' }}
                   placeholder="30"
                 />
               </div>
@@ -455,7 +455,7 @@ export default function MTBPage() {
                   value={newWorkout.seconds}
                   onChange={(e) => setNewWorkout({ ...newWorkout, seconds: e.target.value })}
                   className="w-full px-2 py-2 rounded-lg text-sm text-center"
-                  style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
+                  style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid var(--color-border)' }}
                   placeholder="45"
                 />
               </div>
@@ -470,7 +470,7 @@ export default function MTBPage() {
               value={newWorkout.rideType}
               onChange={(e) => setNewWorkout({ ...newWorkout, rideType: e.target.value })}
               className="w-full px-3 py-2 rounded-lg text-sm"
-              style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
+              style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid var(--color-border)' }}
             >
               <option value="endurance">Endurance</option>
               <option value="power">Power</option>
@@ -488,7 +488,7 @@ export default function MTBPage() {
               value={newWorkout.date}
               onChange={(e) => setNewWorkout({ ...newWorkout, date: e.target.value })}
               className="w-full px-3 py-2 rounded-lg text-sm"
-              style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
+              style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid var(--color-border)' }}
             />
           </div>
           
@@ -502,7 +502,7 @@ export default function MTBPage() {
               value={newWorkout.avgSpeed}
               onChange={(e) => setNewWorkout({ ...newWorkout, avgSpeed: e.target.value })}
               className="w-full px-3 py-2 rounded-lg text-sm"
-              style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
+              style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid var(--color-border)' }}
               placeholder="12.5"
             />
           </div>
@@ -517,7 +517,7 @@ export default function MTBPage() {
               value={newWorkout.maxSpeed}
               onChange={(e) => setNewWorkout({ ...newWorkout, maxSpeed: e.target.value })}
               className="w-full px-3 py-2 rounded-lg text-sm"
-              style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
+              style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid var(--color-border)' }}
               placeholder="25.0"
             />
           </div>
@@ -532,7 +532,7 @@ export default function MTBPage() {
               value={newWorkout.avgHeartRate}
               onChange={(e) => setNewWorkout({ ...newWorkout, avgHeartRate: e.target.value })}
               className="w-full px-3 py-2 rounded-lg text-sm"
-              style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
+              style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid var(--color-border)' }}
               placeholder="145"
             />
           </div>
@@ -547,7 +547,7 @@ export default function MTBPage() {
               value={newWorkout.maxHeartRate}
               onChange={(e) => setNewWorkout({ ...newWorkout, maxHeartRate: e.target.value })}
               className="w-full px-3 py-2 rounded-lg text-sm"
-              style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
+              style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid var(--color-border)' }}
               placeholder="175"
             />
           </div>
@@ -562,7 +562,7 @@ export default function MTBPage() {
             onChange={(e) => setNewWorkout({ ...newWorkout, notes: e.target.value })}
             rows={3}
             className="w-full px-3 py-2 rounded-lg text-sm"
-            style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)', border: '1px solid oklch(0.269 0 0)' }}
+            style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)', border: '1px solid var(--color-border)' }}
             placeholder="How did the ride feel? Trail conditions, technical sections, etc..."
           />
         </div>
@@ -572,7 +572,7 @@ export default function MTBPage() {
           <div className="flex items-center gap-4">
             {saveStatus === 'saving' && (
               <div className="flex items-center gap-2">
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2" style={{ borderColor: 'oklch(0.488 0.243 264.376)' }}></div>
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2" style={{ borderColor: 'var(--color-accent)' }}></div>
                 <span style={{ color: 'var(--color-secondary)' }}>Saving...</span>
               </div>
             )}
@@ -609,14 +609,14 @@ export default function MTBPage() {
                 });
               }}
               className="px-3 py-1 text-sm rounded-lg hover:scale-105 transition-all duration-200"
-              style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)' }}
+              style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)' }}
             >
               Test Duration
             </button>
             <button
               onClick={clearForm}
               className="px-4 py-2 rounded-lg hover:scale-105 transition-all duration-200"
-              style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)' }}
+              style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)' }}
             >
               Clear
             </button>
@@ -625,7 +625,7 @@ export default function MTBPage() {
               onClick={addWorkout}
               disabled={saveStatus === 'saving'}
               className="px-4 py-2 rounded-lg hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ backgroundColor: 'oklch(0.488 0.243 264.376)', color: 'oklch(0.205 0 0)' }}
+              style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-button-text)' }}
             >
               {saveStatus === 'saving' ? 'Saving...' : 'Save Workout'}
             </button>
@@ -643,7 +643,7 @@ export default function MTBPage() {
             onClick={loadWorkouts}
             disabled={isLoading}
             className="px-3 py-1 text-sm rounded-lg hover:scale-105 transition-all duration-200 disabled:opacity-50"
-            style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)' }}
+            style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)' }}
           >
             {isLoading ? 'Loading...' : 'Refresh'}
           </button>
@@ -651,7 +651,7 @@ export default function MTBPage() {
 
         {isLoading && workouts.length === 0 ? (
           <div className="text-center py-8">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 mx-auto mb-4" style={{ borderColor: 'oklch(0.488 0.243 264.376)' }}></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 mx-auto mb-4" style={{ borderColor: 'var(--color-accent)' }}></div>
             <p style={{ color: 'var(--color-secondary)' }}>Loading MTB workouts...</p>
           </div>
         ) : workouts.length === 0 ? (
@@ -669,14 +669,14 @@ export default function MTBPage() {
               <div
                 key={workout.id}
                 className="p-4 rounded-lg border hover:scale-[1.01] transition-all duration-200"
-                style={{ backgroundColor: 'oklch(0.145 0 0)', borderColor: 'oklch(0.269 0 0)' }}
+                style={{ backgroundColor: 'var(--color-card)', borderColor: 'var(--color-muted)' }}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
                       <span
                         className="px-2 py-1 rounded-full text-xs font-medium"
-                        style={{ backgroundColor: 'oklch(0.645 0.246 16.439)', color: 'white' }}
+                        style={{ backgroundColor: 'var(--color-mtb)', color: 'white' }}
                       >
                         {workout.rideType.charAt(0).toUpperCase() + workout.rideType.slice(1)} Ride
                       </span>
@@ -740,7 +740,7 @@ export default function MTBPage() {
                   <button
                     onClick={() => deleteWorkout(workout.id)}
                     className="ml-4 px-3 py-1 text-sm rounded-lg hover:scale-105 transition-all duration-200"
-                    style={{ backgroundColor: 'oklch(0.269 0 0)', color: 'var(--color-foreground)' }}
+                    style={{ backgroundColor: 'var(--color-muted)', color: 'var(--color-foreground)' }}
                   >
                     Delete
                   </button>

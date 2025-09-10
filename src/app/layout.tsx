@@ -21,10 +21,10 @@ function Clock() {
 
   return (
     <div className="text-right">
-      <p className="text-lg font-bold" style={{ color: 'oklch(0.488 0.243 264.376)' }}>
+      <p className="text-lg font-bold" style={{ color: 'var(--color-accent)' }}>
         {time.toLocaleTimeString()}
       </p>
-      <p className="text-xs" style={{ color: 'oklch(0.708 0 0)' }}>
+      <p className="text-xs" style={{ color: 'var(--color-secondary)' }}>
         {time.toLocaleDateString()}
       </p>
     </div>
@@ -38,12 +38,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} font-mono`} style={{ backgroundColor: 'oklch(0.145 0 0)', color: 'oklch(0.985 0 0)' }}>
+      <body className={`${inter.className} font-mono`} style={{ backgroundColor: 'var(--color-background)', color: 'var(--color-foreground)' }}>
         <div className="flex h-screen">
           <NavigationSidebar />
           <main className="flex-1 overflow-auto">
             {/* Global Header with Clock */}
-            <header className="flex justify-end items-center p-6 border-b" style={{ borderColor: 'oklch(0.269 0 0)', backgroundColor: 'oklch(0.145 0 0)' }}>
+            <header className="flex justify-end items-center p-6 border-b" style={{ borderColor: 'var(--color-border)', backgroundColor: 'var(--color-background)' }}>
               <Clock />
             </header>
             {children}
